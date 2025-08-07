@@ -23,12 +23,12 @@ def canUnlockAll(boxes):
     # Set to keep track of opened boxes
     opened = set([0])  # Box 0 is initially unlocked
     
-    # Queue for BFS - start with keys from box 0
+    # Stack for DFS - start with keys from box 0
     keys_to_check = list(boxes[0])
     
     # Process all available keys
     while keys_to_check:
-        key = keys_to_check.pop(0)
+        key = keys_to_check.pop()
         
         # If key corresponds to a valid box that hasn't been opened yet
         if 0 <= key < n and key not in opened:
