@@ -11,7 +11,7 @@ def minOperations(n):
 
     Args:
         n: The target number of H characters
- 
+
     Returns:
         Integer representing minimum operations, or 0 if impossible
     """
@@ -29,5 +29,5 @@ def minOperations(n):
 
     if n > 1:
         operations += n
- 
+
     return operations
