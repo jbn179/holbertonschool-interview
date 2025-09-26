@@ -33,7 +33,7 @@ if __name__ == "__main__":
     
     # Compile regex pattern for better performance  
     pattern = re.compile(
-        r'^\S+ - \[.*\] "GET /projects/260 HTTP/1\.1" (\d+) (\d+)\s*$'
+        r'^\S+\s*-\s*\[.*\]\s*"GET\s+/projects/260\s+HTTP/1\.1"\s+(\d+)\s+(\d+)\s*$'
     )
     
     try:
