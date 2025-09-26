@@ -54,10 +54,10 @@ if __name__ == "__main__":
                 
                 if line_count % 10 == 0:
                     print_stats()
+        
+        # Always print final stats if not already printed at line 10, 20, etc.
+        if line_count == 0 or line_count % 10 != 0:
+            print_stats()
     
     except KeyboardInterrupt:
         print_stats()
-    finally:
-        # Print final stats if not already printed (not multiple of 10)
-        if line_count % 10 != 0:
-            print_stats()
