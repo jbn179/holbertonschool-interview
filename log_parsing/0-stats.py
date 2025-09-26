@@ -31,9 +31,9 @@ def signal_handler(signum, frame):
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
     
-    # Compile regex pattern for better performance
+    # Compile regex pattern for better performance  
     pattern = re.compile(
-        r'^(\d+\.\d+\.\d+\.\d+) - \[.+\] "GET /projects/260 HTTP/1\.1" (\d+) (\d+)$'
+        r'^\S+ - \[.*\] "GET /projects/260 HTTP/1\.1" (\d+) (\d+)\s*$'
     )
     
     try:
@@ -42,8 +42,8 @@ if __name__ == "__main__":
             match = pattern.match(line)
             
             if match:
-                status_code = int(match.group(2))
-                file_size = int(match.group(3))
+                status_code = int(match.group(1))
+                file_size = int(match.group(2))
                 
                 total_size += file_size
                 
