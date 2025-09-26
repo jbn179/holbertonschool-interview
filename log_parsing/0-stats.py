@@ -57,3 +57,7 @@ if __name__ == "__main__":
     
     except KeyboardInterrupt:
         print_stats()
+    finally:
+        # Print final stats if there were any valid lines processed
+        if line_count > 0 and line_count % 10 != 0:
+            print_stats()
