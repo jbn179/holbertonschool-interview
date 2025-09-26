@@ -25,7 +25,7 @@ def print_stats():
 def signal_handler(signum, frame):
     """Handle CTRL+C interruption gracefully"""
     print_stats()
-    sys.exit(0)
+    raise KeyboardInterrupt
 
 
 if __name__ == "__main__":
