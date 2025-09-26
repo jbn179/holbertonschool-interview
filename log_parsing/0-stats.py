@@ -9,7 +9,7 @@ import sys
 
 if __name__ == "__main__":
     # Initialize status code counters for valid HTTP status codes
-    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0, 
+    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
                     "403": 0, "404": 0, "405": 0, "500": 0}
     line_count = 1
     total_file_size = 0
@@ -21,11 +21,11 @@ if __name__ == "__main__":
             tokens = line.split()
             status_code = tokens[-2]
             file_size = tokens[-1]
-            
+
             # Update status code counter if valid
             if status_code in status_codes:
                 status_codes[status_code] += 1
-            
+
             # Return file size as integer
             return int(file_size)
         except (IndexError, ValueError):
@@ -44,17 +44,16 @@ if __name__ == "__main__":
         # Process each line from stdin
         for line in sys.stdin:
             total_file_size += parse_log_line(line)
-            
+
             # Print stats every 10 lines
             if line_count % 10 == 0:
                 print_statistics()
-            
+
             line_count += 1
-            
     except KeyboardInterrupt:
         # Print stats on CTRL+C and preserve traceback
         print_statistics()
         raise
-    
+
     # Print final statistics
     print_statistics()
